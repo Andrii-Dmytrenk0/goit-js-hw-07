@@ -40,13 +40,16 @@ function imgClick(evt) {
     
     instance.show()
 
-    document.addEventListener('keydown', event => {
+    document.addEventListener('keydown', onColoseModal);
+
+    function onColoseModal(event) {
         if (event.key !== 'Escape') {
-        return
-        };
+            return;
+        }
 
         instance.close();
-    });
+        document.removeEventListener('keydown', onColoseModal);
+    }
 };
 
 
